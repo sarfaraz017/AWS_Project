@@ -1,0 +1,10 @@
+---
+- name: Deploy Web Application
+  hosts: webserver
+  become: yes
+  tasks:
+    - name: Pull Docker Image
+      command: docker pull sarfaraz017/AWS_Project:latest
+
+    - name: Run Web Application
+      command: docker run -d -p 80:80 --name AWS_Project sarfaraz017/AWS_Project:latest
