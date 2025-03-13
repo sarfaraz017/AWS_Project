@@ -4,23 +4,23 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/your-username/your-repo.git'
+                git 'https://github.com/sarfaraz017/AWS_Project.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t my-web-app:latest .'
+                    sh 'docker build -t AWS_Project:latest .'
                 }
             }
         }
 
         stage('Push to Docker Hub') {
             steps {
-                withDockerRegistry([credentialsId: 'docker-hub-credentials', url: '']) {
-                    sh 'docker tag my-web-app:latest your-dockerhub-username/my-web-app:latest'
-                    sh 'docker push your-dockerhub-username/my-web-app:latest'
+                withDockerRegistry([credentialsId: 'sarfaraz017', url: '']) {
+                    sh 'docker tag AWS_Project:latest sarfaraz017/AWS_Project:latest'
+                    sh 'docker push sarfaraz017/AWS_Project:latest'
                 }
             }
         }
